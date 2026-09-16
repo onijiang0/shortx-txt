@@ -93,120 +93,192 @@
     "@type": "type.googleapis.com/WhileLoop",
     "conditions": [],
     "actions": [{
+      "@type": "type.googleapis.com/WriteLocalVar",
+      "varName": "clicked",
+      "valueAsString": "0",
+      "customContextDataKey": {},
+      "id": "A-L00"
+    }, {
       "@type": "type.googleapis.com/FindAndClickViewByText",
       "text": "去完成",
       "isRegex": false,
       "timeout": 3000,
       "method": 2,
-      "customContextDataKey": {},
-      "id": "A-L1"
+      "customContextDataKey": {
+        "keys": [{"first": "matchedViewText", "second": "clicked"}]
+      },
+      "id": "A-L01"
     }, {
-      "@type": "type.googleapis.com/Delay",
-      "timeString": "15",
-      "useAlarm": false,
-      "showCD": false,
-      "timeUnit": "TimeUnit_S",
+      "@type": "type.googleapis.com/IfThenElse",
+      "If": [{
+        "@type": "type.googleapis.com/EvaluateLocalVar",
+        "op": "IsNotEmpty",
+        "varName": "clicked",
+        "payload": {"value": ""},
+        "customContextDataKey": {},
+        "id": "C-L01"
+      }],
+      "IfActions": [{
+        "@type": "type.googleapis.com/WriteLocalVar",
+        "varName": "clicked",
+        "valueAsString": "done",
+        "customContextDataKey": {},
+        "id": "A-L02"
+      }, {
+        "@type": "type.googleapis.com/Delay",
+        "timeString": "15",
+        "useAlarm": false,
+        "showCD": false,
+        "timeUnit": "TimeUnit_S",
+        "customContextDataKey": {},
+        "id": "A-L03"
+      }, {
+        "@type": "type.googleapis.com/InjectKeyCode",
+        "keyCode": 4,
+        "longpress": false,
+        "doublepress": false,
+        "customContextDataKey": {},
+        "id": "A-L04"
+      }, {
+        "@type": "type.googleapis.com/Delay",
+        "timeString": "2",
+        "useAlarm": false,
+        "showCD": false,
+        "timeUnit": "TimeUnit_S",
+        "customContextDataKey": {},
+        "id": "A-L05"
+      }],
+      "ElseActions": [{
+        "@type": "type.googleapis.com/FindAndClickViewByText",
+        "text": "去逛逛",
+        "isRegex": false,
+        "timeout": 2000,
+        "method": 2,
+        "customContextDataKey": {
+          "keys": [{"first": "matchedViewText", "second": "clicked"}]
+        },
+        "id": "A-L06"
+      }, {
+        "@type": "type.googleapis.com/IfThenElse",
+        "If": [{
+          "@type": "type.googleapis.com/EvaluateLocalVar",
+          "op": "IsNotEmpty",
+          "varName": "clicked",
+          "payload": {"value": ""},
+          "customContextDataKey": {},
+          "id": "C-L02"
+        }],
+        "IfActions": [{
+          "@type": "type.googleapis.com/WriteLocalVar",
+          "varName": "clicked",
+          "valueAsString": "done",
+          "customContextDataKey": {},
+          "id": "A-L07"
+        }, {
+          "@type": "type.googleapis.com/Delay",
+          "timeString": "15",
+          "useAlarm": false,
+          "showCD": false,
+          "timeUnit": "TimeUnit_S",
+          "customContextDataKey": {},
+          "id": "A-L08"
+        }, {
+          "@type": "type.googleapis.com/InjectKeyCode",
+          "keyCode": 4,
+          "longpress": false,
+          "doublepress": false,
+          "customContextDataKey": {},
+          "id": "A-L09"
+        }, {
+          "@type": "type.googleapis.com/Delay",
+          "timeString": "2",
+          "useAlarm": false,
+          "showCD": false,
+          "timeUnit": "TimeUnit_S",
+          "customContextDataKey": {},
+          "id": "A-L10"
+        }],
+        "ElseActions": [{
+          "@type": "type.googleapis.com/FindAndClickViewByText",
+          "text": "逛一逛",
+          "isRegex": false,
+          "timeout": 2000,
+          "method": 2,
+          "customContextDataKey": {
+            "keys": [{"first": "matchedViewText", "second": "clicked"}]
+          },
+          "id": "A-L11"
+        }, {
+          "@type": "type.googleapis.com/IfThenElse",
+          "If": [{
+            "@type": "type.googleapis.com/EvaluateLocalVar",
+            "op": "IsNotEmpty",
+            "varName": "clicked",
+            "payload": {"value": ""},
+            "customContextDataKey": {},
+            "id": "C-L03"
+          }],
+          "IfActions": [{
+            "@type": "type.googleapis.com/WriteLocalVar",
+            "varName": "clicked",
+            "valueAsString": "done",
+            "customContextDataKey": {},
+            "id": "A-L12"
+          }, {
+            "@type": "type.googleapis.com/Delay",
+            "timeString": "15",
+            "useAlarm": false,
+            "showCD": false,
+            "timeUnit": "TimeUnit_S",
+            "customContextDataKey": {},
+            "id": "A-L13"
+          }, {
+            "@type": "type.googleapis.com/InjectKeyCode",
+            "keyCode": 4,
+            "longpress": false,
+            "doublepress": false,
+            "customContextDataKey": {},
+            "id": "A-L14"
+          }, {
+            "@type": "type.googleapis.com/Delay",
+            "timeString": "2",
+            "useAlarm": false,
+            "showCD": false,
+            "timeUnit": "TimeUnit_S",
+            "customContextDataKey": {},
+            "id": "A-L15"
+          }],
+          "ElseActions": [{
+            "@type": "type.googleapis.com/InputSwipe",
+            "startXS": "1304",
+            "startYS": "900",
+            "endXS": "1304",
+            "endYS": "300",
+            "swipeTimeS": "400",
+            "customContextDataKey": {},
+            "id": "A-L16"
+          }, {
+            "@type": "type.googleapis.com/Delay",
+            "timeString": "1",
+            "useAlarm": false,
+            "showCD": false,
+            "timeUnit": "TimeUnit_S",
+            "customContextDataKey": {},
+            "id": "A-L17"
+          }],
+          "customContextDataKey": {},
+          "id": "A-L18"
+        }],
+        "customContextDataKey": {},
+        "id": "A-L19"
+      }],
       "customContextDataKey": {},
-      "id": "A-L2"
-    }, {
-      "@type": "type.googleapis.com/InjectKeyCode",
-      "keyCode": 4,
-      "longpress": false,
-      "doublepress": false,
-      "customContextDataKey": {},
-      "id": "A-L3"
-    }, {
-      "@type": "type.googleapis.com/Delay",
-      "timeString": "2",
-      "useAlarm": false,
-      "showCD": false,
-      "timeUnit": "TimeUnit_S",
-      "customContextDataKey": {},
-      "id": "A-L4"
-    }, {
-      "@type": "type.googleapis.com/FindAndClickViewByText",
-      "text": "去逛逛",
-      "isRegex": false,
-      "timeout": 2000,
-      "method": 2,
-      "customContextDataKey": {},
-      "id": "A-L5"
-    }, {
-      "@type": "type.googleapis.com/Delay",
-      "timeString": "15",
-      "useAlarm": false,
-      "showCD": false,
-      "timeUnit": "TimeUnit_S",
-      "customContextDataKey": {},
-      "id": "A-L6"
-    }, {
-      "@type": "type.googleapis.com/InjectKeyCode",
-      "keyCode": 4,
-      "longpress": false,
-      "doublepress": false,
-      "customContextDataKey": {},
-      "id": "A-L7"
-    }, {
-      "@type": "type.googleapis.com/Delay",
-      "timeString": "2",
-      "useAlarm": false,
-      "showCD": false,
-      "timeUnit": "TimeUnit_S",
-      "customContextDataKey": {},
-      "id": "A-L8"
-    }, {
-      "@type": "type.googleapis.com/FindAndClickViewByText",
-      "text": "逛一逛",
-      "isRegex": false,
-      "timeout": 2000,
-      "method": 2,
-      "customContextDataKey": {},
-      "id": "A-L9"
-    }, {
-      "@type": "type.googleapis.com/Delay",
-      "timeString": "15",
-      "useAlarm": false,
-      "showCD": false,
-      "timeUnit": "TimeUnit_S",
-      "customContextDataKey": {},
-      "id": "A-L10"
-    }, {
-      "@type": "type.googleapis.com/InjectKeyCode",
-      "keyCode": 4,
-      "longpress": false,
-      "doublepress": false,
-      "customContextDataKey": {},
-      "id": "A-L11"
-    }, {
-      "@type": "type.googleapis.com/Delay",
-      "timeString": "2",
-      "useAlarm": false,
-      "showCD": false,
-      "timeUnit": "TimeUnit_S",
-      "customContextDataKey": {},
-      "id": "A-L12"
-    }, {
-      "@type": "type.googleapis.com/InputSwipe",
-      "startXS": "1304",
-      "startYS": "900",
-      "endXS": "1304",
-      "endYS": "300",
-      "swipeTimeS": "400",
-      "customContextDataKey": {},
-      "id": "A-L13"
-    }, {
-      "@type": "type.googleapis.com/Delay",
-      "timeString": "1",
-      "useAlarm": false,
-      "showCD": false,
-      "timeUnit": "TimeUnit_S",
-      "customContextDataKey": {},
-      "id": "A-L14"
+      "id": "A-L20"
     }],
     "condOp": "ALL",
     "condOpPayload": {},
     "delay": 500,
-    "repeatTimes": 12,
+    "repeatTimes": 15,
     "actionAsyncMode": "ActionAsyncMode_Sync",
     "customContextDataKey": {},
     "id": "A-011"
@@ -216,9 +288,9 @@
     "customContextDataKey": {},
     "id": "A-012"
   }],
-  "id": "RULE-taobao-gold-coin-tasks",
+  "id": "RULE-taobao-gold-coin-tasks-v2",
   "title": "每天8点淘金币自动任务",
-  "description": "每天8:05亮屏解锁，打开淘宝进入淘金币，自动完成浏览类任务并上下滑动列表",
+  "description": "每天8:05自动完成淘金币任务，用If判断未完成才点击浏览",
   "isEnabled": true,
   "condOp": "ALL",
   "hook": {},
