@@ -26,10 +26,10 @@
     "id": "A-002"
   }, {
     "@type": "type.googleapis.com/InputSwipe",
-    "startXS": "540",
-    "startYS": "2100",
-    "endXS": "540",
-    "endYS": "800",
+    "startXS": "1304",
+    "startYS": "1050",
+    "endXS": "1304",
+    "endYS": "400",
     "swipeTimeS": "300",
     "customContextDataKey": {},
     "id": "A-003"
@@ -187,10 +187,10 @@
       "id": "A-L12"
     }, {
       "@type": "type.googleapis.com/InputSwipe",
-      "startXS": "540",
-      "startYS": "1600",
-      "endXS": "540",
-      "endYS": "600",
+      "startXS": "1304",
+      "startYS": "900",
+      "endXS": "1304",
+      "endYS": "300",
       "swipeTimeS": "400",
       "customContextDataKey": {},
       "id": "A-L13"
