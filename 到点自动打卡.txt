@@ -1,0 +1,108 @@
+{
+  "facts": [{
+    "@type": "type.googleapis.com/Alarm",
+    "triggerAt": {
+      "hour": 7,
+      "minutes": 40
+    },
+    "repeat": {
+      "days": ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"]
+    },
+    "customContextDataKey": {},
+    "id": "F-001"
+  }, {
+    "@type": "type.googleapis.com/Alarm",
+    "triggerAt": {
+      "hour": 12,
+      "minutes": 10
+    },
+    "repeat": {
+      "days": ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"]
+    },
+    "customContextDataKey": {},
+    "id": "F-002"
+  }, {
+    "@type": "type.googleapis.com/Alarm",
+    "triggerAt": {
+      "hour": 13,
+      "minutes": 15
+    },
+    "repeat": {
+      "days": ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"]
+    },
+    "customContextDataKey": {},
+    "id": "F-003"
+  }, {
+    "@type": "type.googleapis.com/Alarm",
+    "triggerAt": {
+      "hour": 17,
+      "minutes": 35
+    },
+    "repeat": {
+      "days": ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"]
+    },
+    "customContextDataKey": {},
+    "id": "F-004"
+  }],
+  "conditions": [],
+  "actions": [{
+    "@type": "type.googleapis.com/SetRingerMode",
+    "mode": "normal",
+    "customContextDataKey": {},
+    "id": "A-001"
+  }, {
+    "@type": "type.googleapis.com/ShowDanmu",
+    "text": "打卡打卡打卡打卡",
+    "icon": "remix://mac-finder",
+    "customContextDataKey": {},
+    "id": "A-002"
+  }, {
+    "@type": "type.googleapis.com/ShowToast",
+    "message": "要打卡了",
+    "customContextDataKey": {},
+    "id": "A-003"
+  }, {
+    "@type": "type.googleapis.com/PlayRingtone",
+    "ringtone": {
+      "title": "Carousel",
+      "uri": "content://media/internal/audio/media/40?title=Carousel&canonical=1",
+      "type": 1
+    },
+    "customContextDataKey": {},
+    "id": "A-004"
+  }, {
+    "@type": "type.googleapis.com/LaunchAppByPkg",
+    "pkgAndUsers": [{
+      "first": "com.alibaba.android.rimet",
+      "second": "0"
+    }],
+    "customContextDataKey": {},
+    "id": "A-005"
+  }, {
+    "@type": "type.googleapis.com/Delay",
+    "timeString": "5",
+    "useAlarm": false,
+    "showCD": false,
+    "timeUnit": "TimeUnit_S",
+    "customContextDataKey": {},
+    "id": "A-006"
+  }, {
+    "@type": "type.googleapis.com/FindAndClickViewByText",
+    "text": "打卡",
+    "isRegex": false,
+    "timeout": 8000,
+    "method": 2,
+    "customContextDataKey": {},
+    "id": "A-007"
+  }],
+  "id": "RULE-auto-clockin-ocr",
+  "title": "到点自动打卡",
+  "description": "工作日四个打卡时间点：响铃提醒并自动打开钉钉点击打卡",
+  "isEnabled": true,
+  "condOp": "ALL",
+  "hook": {},
+  "quit": {},
+  "versionCode": "1"
+}
+###------###
+{"type":"rule"}

@@ -1,0 +1,79 @@
+{
+  "facts": [{
+    "@type": "type.googleapis.com/Alarm",
+    "triggerAt": {
+      "hour": 8,
+      "minutes": 0
+    },
+    "repeat": {
+      "days": ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
+    },
+    "customContextDataKey": {},
+    "id": "F-001"
+  }],
+  "conditions": [],
+  "actions": [{
+    "@type": "type.googleapis.com/WakeupScreen",
+    "customContextDataKey": {},
+    "id": "A-001"
+  }, {
+    "@type": "type.googleapis.com/Delay",
+    "timeString": "1",
+    "useAlarm": false,
+    "showCD": false,
+    "timeUnit": "TimeUnit_S",
+    "customContextDataKey": {},
+    "id": "A-002"
+  }, {
+    "@type": "type.googleapis.com/InputSwipe",
+    "startXS": "540",
+    "startYS": "2100",
+    "endXS": "540",
+    "endYS": "800",
+    "swipeTimeS": "300",
+    "customContextDataKey": {},
+    "id": "A-003"
+  }, {
+    "@type": "type.googleapis.com/Delay",
+    "timeString": "1",
+    "useAlarm": false,
+    "showCD": false,
+    "timeUnit": "TimeUnit_S",
+    "customContextDataKey": {},
+    "id": "A-004"
+  }, {
+    "@type": "type.googleapis.com/LaunchAppByPkg",
+    "pkgAndUsers": [{
+      "first": "com.eg.android.AlipayGphone",
+      "second": "0"
+    }],
+    "customContextDataKey": {},
+    "id": "A-005"
+  }, {
+    "@type": "type.googleapis.com/Delay",
+    "timeString": "4",
+    "useAlarm": false,
+    "showCD": false,
+    "timeUnit": "TimeUnit_S",
+    "customContextDataKey": {},
+    "id": "A-006"
+  }, {
+    "@type": "type.googleapis.com/FindAndClickViewByText",
+    "text": "芭芭农场",
+    "isRegex": false,
+    "timeout": 8000,
+    "method": 2,
+    "customContextDataKey": {},
+    "id": "A-007"
+  }],
+  "id": "RULE-auto-open-alipay-farm",
+  "title": "每天8点打开芭芭农场",
+  "description": "每天8:00亮屏解锁，打开支付宝并进入芭芭农场",
+  "isEnabled": true,
+  "condOp": "ALL",
+  "hook": {},
+  "quit": {},
+  "versionCode": "1"
+}
+###------###
+{"type":"rule"}
