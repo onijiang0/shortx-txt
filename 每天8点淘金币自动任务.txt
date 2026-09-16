@@ -79,7 +79,7 @@
       "customContextDataKey": {}, "id": "A-L04"
     }, {
       "@type": "type.googleapis.com/FindAndClickViewByText",
-      "text": "去完成", "isRegex": false, "timeout": 3000, "method": 2,
+      "text": "去完成|立即领", "isRegex": true, "timeout": 3000, "method": 2,
       "customContextDataKey": {"keys": [{"first": "matchedViewText", "second": "clicked"}]},
       "id": "A-L05"
     }, {
