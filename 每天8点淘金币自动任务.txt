@@ -51,7 +51,7 @@
     "id": "A-005"
   }, {
     "@type": "type.googleapis.com/Delay",
-    "timeString": "5",
+    "timeString": "6",
     "useAlarm": false,
     "showCD": false,
     "timeUnit": "TimeUnit_S",
@@ -59,8 +59,8 @@
     "id": "A-006"
   }, {
     "@type": "type.googleapis.com/FindAndClickViewByText",
-    "text": "领淘金币",
-    "isRegex": false,
+    "text": "领?淘金币",
+    "isRegex": true,
     "timeout": 8000,
     "method": 2,
     "customContextDataKey": {},
