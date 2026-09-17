@@ -236,6 +236,23 @@ WhileLoop (15轮):
   5. 都没找到 → 上滑列表
 ```
 
+### 淘宝开屏弹窗处理
+
+淘宝启动后常出现 88VIP 消费券弹窗（粉色大卡片），挡住首页图标。处理方式：
+
+1. **双击返回键**（通用弹窗）
+2. **点击 X 按钮**：88VIP 弹窗底部中央有 X 关闭按钮，坐标约 (600, 2170)（1208×2608）
+3. **组合使用**：先点 X，再双击返回作为兜底
+
+```json
+// 打开淘宝后
+{"@type": "type.googleapis.com/Delay", "timeString": "6", ...},
+{"@type": "type.googleapis.com/InputTap", "xs": "600", "ys": "2170"},  // 点X关弹窗
+{"@type": "type.googleapis.com/Delay", "timeString": "1", ...},
+{"@type": "type.googleapis.com/InjectKeyCode", "keyCode": 4},  // 返回兜底
+{"@type": "type.googleapis.com/InjectKeyCode", "keyCode": 4},  // 返回兜底
+```
+
 ### 关键经验
 - 已完成任务自动从列表消失，无需判断
 - 支付宝任务（去逛逛/逛一逛）会跳转支付宝 App 或 webview
