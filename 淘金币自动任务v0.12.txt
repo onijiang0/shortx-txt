@@ -24,7 +24,7 @@
     "@type": "type.googleapis.com/Delay", "timeString": "6", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-008"
   }, {
     "@type": "type.googleapis.com/OcrDetect",
-    "rectSrc": {"@type": "type.googleapis.com/shortx.RectSourceFullScreen"},
+    "rectSrc": {"@type": "type.googleapis.com/RectSourceFullScreen"},
     "threads": 4, "useSlim": true, "separator": "\n", "output_type": 1,
     "customContextDataKey": {}, "id": "A-009"
   }, {
