@@ -282,6 +282,35 @@ WhileLoop (15轮):
 
 弹窗 X 按钮坐标约 (600, 2170)（1208×2608）。检测关键词：`88VIP`、`平台消费券`。
 
+### 淘金币控件找不到时回首页重试
+
+```json
+// 1. 尝试点击淘金币
+{"@type": "type.googleapis.com/WriteLocalVar", "varName": "nav", "valueAsString": "0"},
+{"@type": "type.googleapis.com/FindAndClickViewById",
+ "viewId": "com.taobao.taobao:id/homepage_pop_view",
+ "timeout": 5000,
+ "customContextDataKey": {"keys": [{"first": "matchedViewId", "second": "nav"}]}},
+
+// 2. 判断是否成功
+{"@type": "type.googleapis.com/IfThenElse",
+ "If": [{"@type": "type.googleapis.com/EvaluateLocalVar",
+         "op": "IsNotEmpty", "varName": "nav"}],
+ "IfActions": [
+   // 成功 → 继续
+   {"@type": "type.googleapis.com/Delay", "timeString": "4", ...}
+ ],
+ "ElseActions": [
+   // 失败 → HOME + 重开淘宝 + 重试
+   {"@type": "type.googleapis.com/InjectKeyCode", "keyCode": 3},
+   {"@type": "type.googleapis.com/LaunchAppByPkg", ...},
+   {"@type": "type.googleapis.com/Delay", "timeString": "5", ...},
+   {"@type": "type.googleapis.com/FindAndClickViewById", ...},
+   {"@type": "type.googleapis.com/Delay", "timeString": "4", ...}
+ ]
+}
+```
+
 ### 关键经验
 - 已完成任务自动从列表消失，无需判断
 - 支付宝任务（去逛逛/逛一逛）会跳转支付宝 App 或 webview
