@@ -46,6 +46,14 @@ $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 
 所有 `@type` 统一用 `type.googleapis.com/组件名`，**不要**加 `shortx.` 命名空间。
 
+**嵌套类型同样适用**：OcrDetect 的 `rectSrc` 内嵌类型也要去掉前缀：
+```json
+// 错误
+"rectSrc": {"@type": "type.googleapis.com/shortx.RectSourceFullScreen"}
+// 正确
+"rectSrc": {"@type": "type.googleapis.com/RectSourceFullScreen"}
+```
+
 ### 3. 顶层字段：精简
 
 Rule（自动指令）只需：
