@@ -124,6 +124,27 @@ adb shell am start -a android.intent.action.SEND -t 'text/plain' \
  "IfActions": [...], "ElseActions": [...]}
 ```
 
+## FindAndClickViewById（最可靠）
+
+用控件资源 ID 查找并点击，比坐标和文字都稳定。
+
+```json
+{
+  "@type": "type.googleapis.com/FindAndClickViewById",
+  "viewId": "com.taobao.taobao:id/homepage_pop_view",
+  "isRegex": false,
+  "timeout": 8000
+}
+```
+
+### 已知淘宝 View ID
+
+| 控件 | ID |
+|------|-----|
+| 淘金币按钮 | `com.taobao.taobao:id/homepage_pop_view` |
+
+**获取 View ID 方法**：ShortX 控件 ID 查看器，或 ADB `uiautomator dump`
+
 ## FindAndClickViewByText 参数
 
 ```json
