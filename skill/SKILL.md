@@ -259,20 +259,28 @@ WhileLoop (15轮):
 
 ### 淘宝开屏弹窗处理
 
-淘宝启动后常出现 88VIP 消费券弹窗（粉色大卡片），挡住首页图标。处理方式：
-
-1. **双击返回键**（通用弹窗）
-2. **点击 X 按钮**：88VIP 弹窗底部中央有 X 关闭按钮，坐标约 (600, 2170)（1208×2608）
-3. **组合使用**：先点 X，再双击返回作为兜底
+淘宝启动后随机出现 88VIP 消费券弹窗。**必须先检测再关闭**，避免误点首页元素。
 
 ```json
-// 打开淘宝后
-{"@type": "type.googleapis.com/Delay", "timeString": "6", ...},
-{"@type": "type.googleapis.com/InputTap", "xs": "600", "ys": "2170"},  // 点X关弹窗
-{"@type": "type.googleapis.com/Delay", "timeString": "1", ...},
-{"@type": "type.googleapis.com/InjectKeyCode", "keyCode": 4},  // 返回兜底
-{"@type": "type.googleapis.com/InjectKeyCode", "keyCode": 4},  // 返回兜底
+// 1. OCR 识别全屏
+{"@type": "type.googleapis.com/OcrDetect",
+ "rectSrc": {"@type": "type.googleapis.com/shortx.RectSourceFullScreen"},
+ "threads": 4, "useSlim": true, "separator": "\n", "output_type": 1},
+
+// 2. 检查是否包含弹窗文字
+{"@type": "type.googleapis.com/IfThenElse",
+ "If": [{"@type": "type.googleapis.com/EvaluateContextVar",
+         "op": "Contains", "varName": "ocrResult", "payload": {"value": "88VIP"}}],
+ "IfActions": [
+   // 有弹窗 → 点X关闭
+   {"@type": "type.googleapis.com/InputTap", "xs": "600", "ys": "2170"},
+   {"@type": "type.googleapis.com/Delay", "timeString": "1", ...}
+ ],
+ "ElseActions": []  // 无弹窗 → 跳过
+}
 ```
+
+弹窗 X 按钮坐标约 (600, 2170)（1208×2608）。检测关键词：`88VIP`、`平台消费券`。
 
 ### 关键经验
 - 已完成任务自动从列表消失，无需判断
