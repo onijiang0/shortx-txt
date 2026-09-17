@@ -24,7 +24,7 @@
     "@type": "type.googleapis.com/Delay", "timeString": "6", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-008"
   }, {
     "@type": "type.googleapis.com/OcrDetect",
-    "rectSrc": {"@type": "type.googleapis.com/RectSourceFullScreen"},
+    "rectSrc": {"@type": "type.googleapis.com/shortx.RectSourceFullScreen"},
     "threads": 4, "useSlim": true, "separator": "\n", "output_type": 1,
     "customContextDataKey": {}, "id": "A-009"
   }, {
@@ -42,12 +42,27 @@
   }, {
     "@type": "type.googleapis.com/Delay", "timeString": "1", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-015"
   }, {
+    "@type": "type.googleapis.com/WriteLocalVar", "varName": "nav", "valueAsString": "0", "customContextDataKey": {}, "id": "A-016a"
+  }, {
     "@type": "type.googleapis.com/FindAndClickViewById",
     "viewId": "com.taobao.taobao:id/homepage_pop_view",
-    "isRegex": false, "timeout": 8000,
-    "customContextDataKey": {}, "id": "A-016"
+    "isRegex": false, "timeout": 5000,
+    "customContextDataKey": {"keys": [{"first": "matchedViewId", "second": "nav"}]}, "id": "A-016"
   }, {
-    "@type": "type.googleapis.com/Delay", "timeString": "4", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-017"
+    "@type": "type.googleapis.com/IfThenElse",
+    "If": [{"@type": "type.googleapis.com/EvaluateLocalVar", "op": "IsNotEmpty", "varName": "nav", "payload": {"value": ""}, "customContextDataKey": {}, "id": "C-nav1"}],
+    "IfActions": [
+      {"@type": "type.googleapis.com/Delay", "timeString": "4", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-017"}
+    ],
+    "ElseActions": [
+      {"@type": "type.googleapis.com/InjectKeyCode", "keyCode": 3, "longpress": false, "doublepress": false, "customContextDataKey": {}, "id": "A-017a"},
+      {"@type": "type.googleapis.com/Delay", "timeString": "1", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-017b"},
+      {"@type": "type.googleapis.com/LaunchAppByPkg", "pkgAndUsers": [{"first": "com.taobao.taobao", "second": "0"}], "customContextDataKey": {}, "id": "A-017c"},
+      {"@type": "type.googleapis.com/Delay", "timeString": "5", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-017d"},
+      {"@type": "type.googleapis.com/FindAndClickViewById", "viewId": "com.taobao.taobao:id/homepage_pop_view", "isRegex": false, "timeout": 8000, "customContextDataKey": {}, "id": "A-017e"},
+      {"@type": "type.googleapis.com/Delay", "timeString": "4", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-017f"}
+    ],
+    "customContextDataKey": {}, "id": "A-017g"
   }, {
     "@type": "type.googleapis.com/WriteLocalVar", "varName": "nav", "valueAsString": "0", "customContextDataKey": {}, "id": "A-018"
   }, {
@@ -92,10 +107,8 @@
         {"@type": "type.googleapis.com/Delay", "timeString": "2", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L06e"},
         {"@type": "type.googleapis.com/InputSwipe", "startXS": "1304", "startYS": "1800", "endXS": "1304", "endYS": "600", "swipeTimeS": "450", "customContextDataKey": {}, "id": "A-L06f"},
         {"@type": "type.googleapis.com/Delay", "timeString": "2", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L06g"},
-        {"@type": "type.googleapis.com/InputSwipe", "startXS": "1304", "startYS": "1800", "endXS": "1304", "endYS": "600", "swipeTimeS": "380", "customContextDataKey": {}, "id": "A-L06h"},
+        {"@type": "type.googleapis.com/InputSwipe", "startXS": "1304", "startYS": "600", "endXS": "1304", "endYS": "1800", "swipeTimeS": "400", "customContextDataKey": {}, "id": "A-L06h"},
         {"@type": "type.googleapis.com/Delay", "timeString": "2", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L06i"},
-        {"@type": "type.googleapis.com/InputSwipe", "startXS": "1304", "startYS": "600", "endXS": "1304", "endYS": "1800", "swipeTimeS": "400", "customContextDataKey": {}, "id": "A-L06j"},
-        {"@type": "type.googleapis.com/Delay", "timeString": "2", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L06k"},
         {"@type": "type.googleapis.com/InjectKeyCode", "keyCode": 4, "longpress": false, "doublepress": false, "customContextDataKey": {}, "id": "A-L07"},
         {"@type": "type.googleapis.com/Delay", "timeString": "2", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L08"}
       ],
@@ -109,11 +122,9 @@
         "IfActions": [
           {"@type": "type.googleapis.com/Delay", "timeString": "6", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L11"},
           {"@type": "type.googleapis.com/InjectKeyCode", "keyCode": 4, "longpress": false, "doublepress": false, "customContextDataKey": {}, "id": "A-L12"},
-          {"@type": "type.googleapis.com/Delay", "timeString": "1", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L13"},
-          {"@type": "type.googleapis.com/InjectKeyCode", "keyCode": 4, "longpress": false, "doublepress": false, "customContextDataKey": {}, "id": "A-L13b"},
-          {"@type": "type.googleapis.com/Delay", "timeString": "1", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L13c"},
+          {"@type": "type.googleapis.com/Delay", "timeString": "2", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L13"},
           {"@type": "type.googleapis.com/LaunchAppByPkg", "pkgAndUsers": [{"first": "com.taobao.taobao", "second": "0"}], "customContextDataKey": {}, "id": "A-L14"},
-          {"@type": "type.googleapis.com/Delay", "timeString": "4", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L15"},
+          {"@type": "type.googleapis.com/Delay", "timeString": "5", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L15"},
           {"@type": "type.googleapis.com/FindAndClickViewById", "viewId": "com.taobao.taobao:id/homepage_pop_view", "isRegex": false, "timeout": 5000, "customContextDataKey": {}, "id": "A-L15b"},
           {"@type": "type.googleapis.com/Delay", "timeString": "3", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L15c"},
           {"@type": "type.googleapis.com/InputTap", "xs": "560", "ys": "720", "customContextDataKey": {}, "id": "A-L15d"},
@@ -129,11 +140,9 @@
           "IfActions": [
             {"@type": "type.googleapis.com/Delay", "timeString": "6", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L18"},
             {"@type": "type.googleapis.com/InjectKeyCode", "keyCode": 4, "longpress": false, "doublepress": false, "customContextDataKey": {}, "id": "A-L19"},
-            {"@type": "type.googleapis.com/Delay", "timeString": "1", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L20"},
-            {"@type": "type.googleapis.com/InjectKeyCode", "keyCode": 4, "longpress": false, "doublepress": false, "customContextDataKey": {}, "id": "A-L20b"},
-            {"@type": "type.googleapis.com/Delay", "timeString": "1", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L20c"},
+            {"@type": "type.googleapis.com/Delay", "timeString": "2", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L20"},
             {"@type": "type.googleapis.com/LaunchAppByPkg", "pkgAndUsers": [{"first": "com.taobao.taobao", "second": "0"}], "customContextDataKey": {}, "id": "A-L21"},
-            {"@type": "type.googleapis.com/Delay", "timeString": "4", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L22"},
+            {"@type": "type.googleapis.com/Delay", "timeString": "5", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L22"},
             {"@type": "type.googleapis.com/FindAndClickViewById", "viewId": "com.taobao.taobao:id/homepage_pop_view", "isRegex": false, "timeout": 5000, "customContextDataKey": {}, "id": "A-L22b"},
             {"@type": "type.googleapis.com/Delay", "timeString": "3", "useAlarm": false, "showCD": false, "timeUnit": "TimeUnit_S", "customContextDataKey": {}, "id": "A-L22c"},
             {"@type": "type.googleapis.com/InputTap", "xs": "560", "ys": "720", "customContextDataKey": {}, "id": "A-L22d"},
@@ -161,7 +170,7 @@
   }],
   "id": "RULE-taobao-coins-v012",
   "title": "淘金币自动任务 v0.12",
-  "description": "v0.12: 找不到淘金币控件自动回首页重试",
+  "description": "v0.12: OCR检测弹窗+ViewID导航+找不到回首页重试",
   "isEnabled": true,
   "condOp": "ALL",
   "hook": {}, "quit": {},
